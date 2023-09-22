@@ -1,7 +1,8 @@
+"use strict";
 // tupla
-var tupla = [10, "cioa"];
+let tupla = [10, "cioa"];
 // union
-var prova = 10;
+let prova = 10;
 // enum
 var Ruolo;
 (function (Ruolo) {
@@ -9,7 +10,7 @@ var Ruolo;
     Ruolo[Ruolo["user"] = 1] = "user";
     Ruolo[Ruolo["guest"] = 2] = "guest";
 })(Ruolo || (Ruolo = {}));
-var pers = {
+const pers = {
     nome: "luca",
     cognome: "rossi",
     ruolo: Ruolo.admin,
