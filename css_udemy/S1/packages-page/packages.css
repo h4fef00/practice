@@ -1,0 +1,52 @@
+main {
+  padding-top: 32px;
+}
+
+.package-section {
+  padding: 40px;
+  margin: 16px 0;
+  width: 80%;
+  border: 5px solid #0e4f1f;
+  border-left: none;
+}
+
+.package-section:hover {
+  border: 5px solid red;
+  border-left: none;
+}
+
+.package-section a {
+  text-decoration: none;
+  display: block;
+}
+
+.package-title {
+  color: black;
+}
+
+.package-subtitle {
+  color: #858585;
+}
+
+.package-text {
+  background-color: white;
+  border: #0e4f1f 5px solid;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.dark-green {
+  background-color: #0e4f1f;
+}
+
+.dark-green .package-title {
+  color: white;
+}
+
+.middle-green {
+  background-color: #cff7d8;
+}
+
+.light-green {
+  background-color: #e8f8ec;
+}

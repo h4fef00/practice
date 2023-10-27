@@ -6,6 +6,7 @@
     <title>uHost</title>
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="shared.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,17 +24,17 @@
   <body>
     <header class="main-header">
       <div>
-        <a href="index.html"> uHost </a>
+        <a href="index.html" class="main-header__brand"> uHost </a>
       </div>
       <nav class="main-nav">
-        <ul class="main-nav__items">
+        <ul class="key-item">
           <li class="main-nav__item">
-            <a href="pachages/index.html">Packages</a>
+            <a href="packages-page/index.html">Packages</a>
           </li>
           <li class="main-nav__item">
             <a href="customers/index.html">Customers</a>
           </li>
-          <li class="main-nav__item">
+          <li class="main-nav__item main-nav__item--cta">
             <a href="start-hosting/index.html">Start hosting</a>
           </li>
         </ul>
@@ -46,8 +47,82 @@
 
       <section id="plans">
         <h1 class="section-title">Choose your plan</h1>
-        <p>Make sure you get the most for your money</p>
+        <div>
+          <article class="plan">
+            <h1 class="plan-title">FREE</h1>
+            <h2 class="plan-price">$0/month</h2>
+            <h3>For hobby projects or small teams.</h3>
+            <ul class="plan-features">
+              <li class="plan-feature">1 Workspace</li>
+              <li class="plan-feature">Unlimited Traffic</li>
+              <li class="plan-feature">10GB Storage</li>
+              <li class="plan-feature">Basic Support</li>
+            </ul>
+            <div>
+              <button class="button">CHOOSE PLAN</button>
+            </div>
+          </article>
+          <article class="plan plan-highlited">
+            <h1 class="plan-annotation">RECOMMENDED</h1>
+            <h1 class="plan-title">PLUS</h1>
+            <h2 class="plan-price">$29/month</h2>
+            <h3>For ambitious projects.</h3>
+            <ul class="plan-features">
+              <li class="plan-feature">5 Workspaces</li>
+              <li class="plan-feature">Unlimited Traffic</li>
+              <li class="plan-feature">100GB Storage</li>
+              <li class="plan-feature">Plus Support</li>
+            </ul>
+            <div>
+              <button class="button">CHOOSE PLAN</button>
+            </div>
+          </article>
+          <article class="plan">
+            <h1 class="plan-title">PREMIUM</h1>
+            <h2 class="plan-price">$99/month</h2>
+            <h3>Your enterprise solution.</h3>
+            <ul class="plan-features">
+              <li class="plan-feature">10 Workspaces</li>
+              <li class="plan-feature">Unlimited Traffic</li>
+              <li class="plan-feature">Unlimited Storage</li>
+              <li class="plan-feature">Priority Support</li>
+            </ul>
+            <div>
+              <button class="button">CHOOSE PLAN</button>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="key-features">
+        <h1 class="section-title">Many Good Reasons to Stick Around</h1>
+        <ul class="key-features-list">
+          <li class="key-feature">
+            <div class="key-feature-img"></div>
+            <p class="key-feature-description">3,857,000 Trusting Customers</p>
+          </li>
+          <li class="key-feature">
+            <div class="key-feature-img"></div>
+            <p class="key-feature-description">99.999% Uptime Guarantee</p>
+          </li>
+          <li class="key-feature">
+            <div class="key-feature-img"></div>
+            <p class="key-feature-description">Lightning Fast CDN</p>
+          </li>
+        </ul>
       </section>
     </main>
+
+    <footer>
+      <nav class="main-footer">
+        <ul class="main-footer-links">
+          <li class="main-footer-link">
+            <a href="#">Support</a>
+          </li>
+          <li class="main-footer-link">
+            <a href="#">Terms of Use</a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

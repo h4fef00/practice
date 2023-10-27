@@ -1,14 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-}
-
 #product-overview {
-  background: #ff1b68;
+  background: url("freedom.jpg");
   width: 100%;
   height: 528px;
   padding: 10px;
@@ -16,36 +7,111 @@ body {
 
 .section-title {
   color: #2ddf5c;
-  font-family: inherit;
+  text-align: center;
+}
+
+.plan {
+  background-color: #d5ffdc;
+  text-align: center;
+  padding: 16px;
+  margin: 8px;
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+}
+
+/* .plan:nth-child(2) {
+} */
+
+.plan-highlited {
+  background-color: #19b84c;
+  color: white;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.plan-annotation {
+  background-color: white;
+  color: #19b84c;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.plan-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* .plan-features li {
+} */
+
+.plan-feature {
+  margin: 8px 0;
+}
+
+.plan-title {
+  color: #0e4f1f;
+}
+
+.plan-price {
+  color: #858585;
+}
+
+.plan-highlited .plan-price {
+  color: #0e4f1f;
+}
+
+.plan-highlited .plan-title {
+  color: white;
+}
+
+#key-features {
+  background-color: #ff1b68;
+  margin-top: 80px;
+  padding: 16px;
+}
+
+#key-features .section-title {
+  color: white;
+  margin: 32px;
+}
+
+.key-features-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.key-item {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.key-feature {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+}
+
+.key-feature-description {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+
+.key-feature-img {
+  background: #ffcede;
+  width: 128px;
+  height: 128px;
+  border: 2px solid #424242;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
 #product-overview h1 {
   color: white;
   font-family: "Anton", sans-serif;
-}
-
-.main-header {
-  background-color: #2ddf5c;
-  width: 100%;
-  padding: 8px 16px;
-}
-
-.main-header > div {
-  display: inline-block;
-}
-
-.main-nav {
-  display: inline-block;
-  text-align: right;
-  width: 100%;
-}
-
-.main-nav__items {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.main-nav__item {
-  display: inline-block;
 }
