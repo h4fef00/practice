@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+:root {
+  /* primary */
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+
+  /* neutral */
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --dark-blue: hsl(223, 47%, 23%);
+}
+
+body {
+  background-color: var(--pale-blue);
+  font-family: "Red Hat Display", sans-serif !important;
+}
+
+.container-img {
+  background-image: url("./images/illustration-hero.svg");
+  background-size: cover;
+  width: 30vw;
+  height: 50vh;
+  /* border-radius: 20px 20px 0 0; */
+}
+
+.text-primary-blue {
+  color: var(--dark-blue);
+}
+
+.fw-900 {
+  font-weight: 900 !important;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.text-desaturated-blue {
+  color: var(--desaturated-blue);
+}
+
+.text-center {
+  text-align: center;
+}
