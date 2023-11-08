@@ -1,0 +1,756 @@
+CSS IDEAS:
+
+https://medium.com/better-programming/8-frontend-coding-ideas-that-will-inspire-you-to-code-7ed8481919fe
+
+col-sm for larger mobile phones (devices with resolutions >= 576px);
+col-md for tablets (>=768px);
+col-lg for laptops (>=992px);
+col-xl for desktops (>=1200px)
+_______________________
+ALLINEAMENTO IONIC:
+
+nella classe del css:
+
+.align-center {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+.align-left {
+	justify-content: flex-start;
+	display: flex;
+	align-items: center;
+}
+.align-right{
+	justify-content: flex-end;
+	display: flex;
+	align-items: center;
+}
+_______________________
+CONTENUTO TUTTO AL CENTRO DELLA PAGINA:
+
+in <ion-content>
+
+  <div class="content-center">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          Studenti
+        </ion-col>
+        <ion-col size="12">
+          Genitori
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+css:
+    .content-center {
+        height: calc(100vh - 44px - 50px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+_______________________
+CONTENUTO A CAPO AUTOMATICO:
+
+white-space: initial;
+_______________________
+BORDER RADIUS SU SAFARI
+
+overflow: hidden;
+border-top-left-radius: 34px;
+-webkit-border-top-left-radius: 34px;
+-webkit-transform: translateZ(0);
+-webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+_______________________
+CERCHIO PERFETTO:
+
+.circle {
+    display: inline-block;
+    width: 1.625em;
+    height: 1.625em;
+    margin: .3125em 0;
+    line-height: 1.625em;
+    border: 2px solid transparent;
+    border-radius: 2em;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+_______________________
+TESTO COPIABILE:
+
+
+<a class="text-copyable">www.salute.gov.it/portale/nuovocoronavirus/homeNuovoCoronavirus.jsp</a>
+
+.text-copyable {
+	-webkit-user-select: auto !important;
+	-moz-user-select: auto !important;
+	-ms-user-select: auto !important;
+	user-select: auto !important;
+}
+
+ICON ROTATE:
+
+.rotate-45 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+_______________________
+SEPARATORE DEL TESTO:
+
+    // separator
+
+    .separator-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .separator-right::after {
+        content: '';
+        flex: 1;
+        margin-left: 1rem;
+        height: 1px;
+        background-color: gainsboro;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .separator::before,
+    .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid gainsboro;
+    }
+
+    .separator:not(:empty)::before {
+        margin-right: .25em;
+    }
+
+    .separator:not(:empty)::after {
+        margin-left: .25em;
+    }
+_______________________
+PUNTINI PUNTINI:
+
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+_______________________
+ALLINEAMENTO CARATTERI IN VERTICALE:
+
+p {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+_______________________
+ION-SLIDES TOP:
+
+    ion-slide.swiper-slide {
+        align-items: flex-start !important;
+    }
+_______________________
+TOGLIERE BORDI (COLOR ARANCIONE) AI BUTTON:
+
+    .close {
+        outline: none;
+        box-shadow: none;
+    }
+_______________________
+NASCONDERE SCROLLBAR BROWSER E VISUALIZZARE SCROLLBAR INTERNO
+
+body {
+    overflow: hidden;
+}
+
+
+    .scrollbar {
+        overflow-y: scroll;
+        max-height: 71vh;
+    }
+_______________________
+CAMBIARE FONT:
+
+in style.css:
+
+@font-face {
+    font-family: ITCFranklinGothicStd;
+    src: url("/assets/fonts/ITCFranklinGothicStd-Book.otf") format("truetype");
+}
+
+body {
+    font-family: 'ITCFranklinGothicStd' !important;
+}
+_______________________
+CUSTOM SCROLLBAR:
+
+
+// scrollbar
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  opacity: 1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #637099;
+  opacity: 1;
+  border-radius: 0.42rem !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #637099;
+  opacity: 1;
+  border-radius: 0.42rem !important;
+}
+_______________________
+DISABILITARE SCROLL:
+
+.fixed-header-bottomsheet {
+	overflow: hidden !important;
+	position: fixed !important;
+	width: 100% !important;
+	z-index: 999 !important;
+	background-color: white !important;
+}
+
+OPPURE
+
+angular:
+
+.scroll-content {
+	overflow: hidden !important;
+}
+	
+ionic:
+
+ion-content {
+    --overflow: hidden !important;
+}
+
+DISABILITARE SCROLL IOS:
+
+.ios {
+    .scroll-content {
+        -webkit-overflow-scrolling: touch !important;
+    }
+}
+_______________________
+SIZE CHECKBOX:
+
+transform: scale(1.5);
+_______________________
+
+POSITION STICKY:
+
+.position-sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 6rem !important;
+  z-index: 9 !important;
+}
+_______________________
+
+CENTRARE IMG IN DIV:
+
+.class {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+}
+
+OPPURE
+
+    #loading {
+        position: fixed;
+        z-index: 999;
+        margin: auto;
+        width: 6rem;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+_______________________
+
+NO SCROLLBAR:
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+___________________________
+
+PULSE ANIMATION:
+
+.pulse {
+  margin:100px;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #cca92c;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.pulse:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+____________________________
+
+SFOCATURA / BACKDROP:
+
+background-color: rgba(255, 255, 255, .5);
+-webkit-backdrop-filter: blur(2em);
+backdrop-filter: blur(2em);
+
+____________________________
+
+TRASPARENZA TABS:
+
+// tabs
+
+ion-tab-bar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	--background: rgba(0, 106, 59, 0.8);
+
+	ion-tab-button {
+		--background: transparent;
+	}
+}
+
+____________________________
+
+TRASPARENZA SOLO ALL'IMMAGINE:
+
+background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,1) 100%), url(IMAGE_URL);
+    
+background-image: linear-gradient(to bottom, #dfdede 0%, #f2f2f2 100%);
+
+background-image: linear-gradient(to right, #dd4b3f 0%, #f1c02b 100%);
+________________________
+Dissolvenza al caricamento della view:
+[Senza ngAnimate]
+
+nel css:
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+in html:
+class="fade-in"
+______________________
+Dissolvenza al caricamento della view:
+[Con ngAnimate]
+nel div inserire: class="main".
+
+Css:
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.main.ng-enter {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+_______________
+Background image center cover
+
+.wavy-background {
+    background-image: url('../../assets/imgs/wavy_line.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+ionic:
+
+ion-content.background-content {
+	--background: none;
+	background-image: url('/assets/imgs/background.png');
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+_______________
+Cambio colore placeholder:
+
+nel css:
+
+    ::placeholder {
+        color: #002665 !important;
+    }
+_____________________
+Input text con check e bordo colorato (css):
+
+.ng-valid[required], .ng-valid.required {
+  border: 1px solid #058305; /* green */
+}
+
+.ng-dirty[required].ng-invalid[required] {
+  border: 1px solid #e04041; /* red */
+}
+
+.help-block {
+  text-align: left;
+  margin-top: 8px;
+  color: #e15042;
+}
+
+.green-check {
+  background: url(/assets/img/green-check.png) right no-repeat;
+  background-size: 2rem;
+  background-position: right 10px center;
+}
+
+.red-delete {
+  background: url(/assets/img/red-delete.png) right no-repeat;
+  background-size: 2rem;
+  background-position: right 10px center;
+}
+_____________________________
+
+MEZZE COLONNE (MIDDLE COL):
+
+// col
+
+.col-1-5 {
+  width: 12.499999995% !important;
+  flex: 0 0 12.499% !important;
+  max-width: 12.499% !important;
+}
+_____________________________
+
+OPACITY DALL'ALTO AL BASSO:
+
+div {
+  -webkit-mask-image: -webkit-gradient(linear, center top, center bottom, 
+  color-stop(0.00,  rgba(0,0,0,0)),
+  color-stop(1.00,  rgba(0,0,0,1)));
+}
+_____________________________
+
+FIT COVER (STRECH IMAGE):
+
+object-fit: cover;
+
+_____________________________
+
+NIENTE FRECCE IN TYPE NUMBER (NO ARROWS):
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+_____________________________
+
+CHECKBOX + LABEL:
+
+css:
+
+.checkbox {
+    margin: auto auto !important;
+    position: relative !important;
+    display: block !important;
+}
+
+input[type="checkbox"] {
+    width: auto !important;
+    opacity: 0.00000001 !important;
+    position: absolute !important;
+    left: 0 !important;
+    margin-left: -20px !important;
+}
+
+.helper {
+    position: absolute !important;
+    top: -4px !important;
+    left: -4px !important;
+    cursor: pointer !important;
+    display: block !important;
+    font-size: 16px !important;
+    user-select: none !important;
+    color: gainsboro !important;
+}
+
+.helper:before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 1.5rem !important;
+    margin: 5px !important;
+    width: 18px !important;
+    height: 18px !important;
+    transition: transform 0.28s ease !important;
+    border-radius: 3px !important;
+    border: 2px solid gainsboro !important;
+}
+
+.helper:after {
+    content: '' !important;
+    display: block !important;
+    width: 10px !important;
+    height: 5px !important;
+    border-bottom: 2px solid black !important;
+    border-left: 2px solid black !important;
+    -webkit-transform: rotate(-45deg) scale(0) !important;
+    -moz-transform: rotate(-45deg) scale(0) !important;
+    -ms-transform: rotate(-45deg) scale(0) !important;
+    transform: rotate(-45deg) scale(0) !important;
+    position: absolute !important;
+    top: 2.6rem !important;
+    left: 0.9rem !important;
+}
+
+input[type="checkbox"]:checked~.helper::before {
+    color: gainsboro !important;
+}
+
+input[type="checkbox"]:checked~.helper::after {
+    -webkit-transform: rotate(-45deg) scale(1) !important;
+    -moz-transform: rotate(-45deg) scale(1) !important;
+    -ms-transform: rotate(-45deg) scale(1) !important;
+    transform: rotate(-45deg) scale(1) !important;
+}
+
+.checkbox label {
+    min-height: 24px !important;
+    padding-left: 35px !important;
+    margin-bottom: 0 !important;
+    font-weight: normal !important;
+    cursor: pointer !important;
+    vertical-align: sub !important;
+}
+
+html:
+            <div class="checkbox">
+              <label style="font-size: 11px; text-align: left">
+                <input type="checkbox" [checked]="ctdp" (change)="ctdp = !ctdp">
+                <i class="helper"></i>al trattamento dei dati per finalità di marketing diretto
+                e per l’invio di comunicazioni commerciali con modalità
+                automatizzata ai sensi del D.lgs 196/2003.
+              </label>
+            </div>
+
+
+_____________________________
+
+MEDIA QUERY:
+
+	@media (orientation: landscape) {
+	  body {
+		flex-direction: row;
+	  }
+	}
+
+	@media (orientation: portrait) {
+	  body {
+		flex-direction: column;
+	  }
+	}
+
+    // DESKTOP
+    @media screen and (min-width: 1300px) {
+    }
+
+    // CHROMEBOOK PIXEL
+    @media screen and (min-width: 1275px) and (max-width: 1285px) and (min-height: 845px) and (max-height: 855px) {
+    }
+
+    // iPAD PRO 12.9
+    @media screen and (min-width: 861px) and (max-width: 1274px) and (min-height: 1286px) {
+    }
+
+    // CHROMEBOOK PIXEL PORTRAIT
+    @media screen and (min-width: 806px) and (max-width: 860px) and (min-height: 1275px) and (max-height: 1285px) {
+    }
+
+    // iPAD AIR
+    @media screen and (min-width: 806px) and (max-width: 835px) and (min-height: 1031px) and (max-height: 1050px) {
+    }
+
+    // SAMSUNG GALAXY TAB 10
+    @media screen and (min-width: 771px) and (max-width: 805px) and (min-height: 1031px) and (max-height: 1285px) {
+    }
+
+    // iPAD
+    @media screen and (min-width: 606px) and (max-width: 770px) and (min-height: 966px) and (max-height: 1030px) {
+    }
+
+    // IPAD PRO 9.7
+    @media screen and (min-width: 606px) and (max-width: 770px) and (min-height: 856px) and (max-height: 965px) {
+    }
+
+    // NEXUS 7 TABLET
+    @media screen and (min-width: 486px) and (max-width: 605px) and (min-height: 856px) and (max-height: 965px) {
+    }
+
+    // SURFACE DUO
+    @media screen and (min-width: 486px) and (max-width: 605px) and (min-height: 700px) and (max-height: 750px) {
+    }
+
+    // LG G5 / GALAXY NOTE 5
+    @media screen and (min-width: 475px) and (max-width: 485px) and (min-height: 850px) and (max-height: 855px) {
+    }
+
+    // ONE PLUS 5
+    @media screen and (min-width: 450px) and (max-width: 460px) and (min-height: 800px) and (max-height: 815px) {
+    }
+
+    // IPHONE XR / XS MAX
+    @media screen and (min-width: 410px) and (max-width: 414px) and (min-height: 895px) and (max-height: 900px) {
+    }
+
+    // SAMSUNG A50
+    @media screen and (min-width: 410px) and (max-width: 414px) and (min-height: 890px) and (max-height: 894px) {
+    }
+
+    // SAMSUNG S9 Plus / SAMSUNG S20 / GOOGLE PIXEL 3 XL
+    @media screen and (min-width: 410px) and (max-width: 414px) and (min-height: 835px) and (max-height: 889px) {
+    }
+
+    // IPHONE 11 / IPHONE 11 PRO MAX
+    @media screen and (min-width: 412px) and (max-width: 414px) and (min-height: 830px) and (max-height: 834px) {
+    }
+
+    // PIXEL 2 XL/ONE PLUS 3/ GOOGLE PIXEL 3
+    @media screen and (min-width: 410px) and (max-width: 412px) and (min-height: 800px) and (max-height: 829px) {
+    }
+
+    // SAMSUNG S8 PLUS
+    @media screen and (min-width: 410px) and (max-width: 414px) and (min-height: 770px) and (max-height: 799px) {
+    }
+
+    // iPHONE 6 / 7 / 8 PLUS
+    @media screen and (min-width: 410px) and (max-width: 415px) and (min-height: 735px) and (max-height: 769px) {
+    }
+
+    // GOOGLE PIXEL / PIXEL 2
+    @media screen and (min-width: 410px) and (max-width: 414px) and (min-height: 730px) and (max-height: 734px) {
+    }
+
+    // iPHONE 6/7/8 PLUS WITH TOOLBAR
+    @media screen and (min-width: 410px) and (max-width: 415px) and (min-height: 670px) and (max-height: 729px) {
+    }
+
+    // iPHONE X
+    @media screen and (min-width: 370px) and (max-width: 380px) and (min-height: 751px) and (max-height: 850px) {
+    }
+
+    // iPHONE 6/7/8
+    @media screen and (min-width: 366px) and (max-width: 400px) and (min-height: 500px) and (max-height: 750px) {
+    }
+
+    // HUAWEI P20 PRO / SAMSUNG S9
+    @media screen and (min-width: 355px) and (max-width: 365px) and (min-height: 700px) and (max-height: 750px) {
+    }
+
+    // HUAWEI P20 LITE
+    @media screen and (min-width: 355px) and (max-width: 365px) and (min-height: 685px) and (max-height: 699px) {
+    }
+
+    // SAMSUNG S8
+    @media screen and (min-width: 355px) and (max-width: 365px) and (min-height: 646px) and (max-height: 684px) {
+    }
+
+    // HUAWEI P10 / SAMSUNG S5 / MOTO G4
+    @media screen and (min-width: 355px) and (max-width: 365px) and (min-height: 635px) and (max-height: 645px) {
+    }
+
+    // SAMSUNG S7 / S7 EDGE
+    @media screen and (min-width: 355px) and (max-width: 365px) and (min-height: 600px) and (max-height: 634px) {
+    }
+
+    // OTHER ANDROID DEVICES / SAMSUNG S5 / MOTO G4
+    @media screen and (min-width: 355px) and (max-width: 365px) and (min-height: 560px) and (max-height: 599px) {
+    }
+
+    // iPHONE 5/SE
+    @media screen and (min-width: 300px) and (max-width: 350px) and (min-height: 500px) and (max-height: 600px) {
+    }
+
+    // GALAXY FOLD
+    @media screen and (min-width: 270px) and (max-width: 299px) and (min-height: 500px) and (max-height: 700px) {
+    }
+_____________________________

@@ -1,0 +1,55 @@
+WHAT IS REACT
+E' una libreria js che ci permette di costruire siti interattivi e dinamici. 
+---------------------------------------------------------------------------------
+CREATING APP
+(con vite) npm create vite@latest
+---------------------------------------------------------------------------------
+STRUCTURE
+-node_modules pacchetti installati
+-public assets come img, media
+-src con componenti
+-index con div id="root" che è container dell'applicazione
+tag script con main.tsx che è l'entry point dell'applicazione
+---------------------------------------------------------------------------------
+CREATING COMPONENT
+creare a mano file con estensione .tsx
+ci sono due modi per creare un componente: utilizzare una classe JS o una funzione. La seconda è quella più popolare perché più facili da scrivere.
+Il nome delle funzioni sono spesso scritti in maiuscolo (PascalCasing).
+
+All'interno delle funzioni scriviamo in JSX (Javascript XML). Questo codice viene tradotto da React.
+
+Dopo aver creato il componente, lo esportiamo con export default nomeComponente;
+
+import Message from "./Message";
+function App() {
+  return (
+    <div>
+      <Message></Message>
+    </div>
+  );
+}
+export default App;
+
+Se vogliamo inserire codice JS lo mettiamo tra {}
+------------------------------------------------------------------------------
+HOW REACT WORKS
+Abbiamo l'app component che è quella più importante e i figli/componenti che creiamo noi. Quando l'applicazione viene lanciata, React prende questo albero dei componenti e crea una struttura dati chiamata VIRTUAL DOM, diverso dall'attuale dom del browser: è una rappresentazione del nostro albero dei componenti, dove ogni nodo rappresenta un componente e le sue proprietà.
+Quando i dati di un componente cambiano, Reat modifica i nodi corrispondenti nel dom virtuale per riflettere il nuovo "stato".
+Poi confronta la versione corrente del dom virtuale con quella precedente e identifica i nodi che devono essere modificati. 
+-----------------------------------------------------------------------------
+FRAGMENTS
+In React un componente non può ritornare più di un elemento.
+-Un modo per risolvere la cosa è circondare il tutto con un div.
+
+Shortcut: barra di ricerca vs code, cercare "wrap ..." e scegliere l'elemento.
+
+-Un altro modo per risolvere è con i fragments, "<Fragment>":
+import { Fragment } from "react";
+-Sintassi più breve: "<>"
+-----------------------------------------------------------------------------
+RENDERING LISTS
+In React non abbiamo i forloop. 
+Quando utilizziamo map per mappare degli elementi, dobbiamo assegnare ad ogni elemento una proprietà key che identifica in modo univoco l'elemento. 
+-----------------------------------------------------------------------------
+CONDITIONAL RENDERING
+

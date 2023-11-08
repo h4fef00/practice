@@ -1,0 +1,1757 @@
+Installare node js
+
+da terminale (cmd), nella cartella:
+-npm install
+-npm install -g @angular/cli
+
+Creazione progetto:
+-ng new my-app
+
+Avviare l'applicazione:
+cd my-app
+ng serve --open
+
+Togliere warning:
+ng set --global warnings.versionMismatch=false
+_______________________________________________
+PROBLEMI CLONE:
+
+Come risolvere con Angular 4:
+1) rm -f package-lock.json && npm install
+2) ng serve --open
+
+Come risolvere con AngularJS:
+1) Eliminare cartella .vs dal progetto
+2) Chiudere e ricaricare tutto
+_______________________________________________________
+_______________________________________________________
+ANGULAR 2+
+_______________________________________________________
+_______________________________________________________
+INSTALLARE BOOTSTRAP:
+
+npm install bootstrap --save  
+_______________________________________________________
+Build con clear cache:
+ng build --prod --aot --outputHashing=all
+ng build --prod --aot --output-hashing=all
+_______________________________________________________
+FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory:
+
+da terminale bash:
+export NODE_OPTIONS=--max_old_space_size=8192
+
+#increase to 1gb
+node --max-old-space-size=1024 index.js
+
+#increase to 2gb
+node --max-old-space-size=2048 index.js 
+
+#increase to 3gb
+node --max-old-space-size=3072 index.js
+
+#increase to 4gb
+node --max-old-space-size=4096 index.js
+
+#increase to 5gb
+node --max-old-space-size=5120 index.js
+
+#increase to 6gb
+node --max-old-space-size=6144 index.js
+
+#increase to 7gb
+node --max-old-space-size=7168 index.js
+
+#increase to 8gb 
+node --max-old-space-size=8192 index.js 
+________________
+Eseguire funzione al clic su Enter nell'input:
+
+(keyup.enter)="onLogin()"
+_______________
+Check Browser:
+
+    let ua = window.navigator.userAgent;
+    if (ua && (ua.indexOf("MSIE ") > 0 || ua.indexOf("Trident") > 0)) {
+      console.log("Internet Explorer");
+      this.internet_explorer = true;
+    }
+  }
+________________
+Pipe currency ngModel:
+
+[ngModel]="currentSalesQuotesHeader[detail.name] | currency: 'EUR':'symbol':'0.2-2':'it'"
+
+in app.module:
+
+// Locale
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it';
+registerLocaleData(localeIt, 'it');
+
+in providers:
+{
+	provide: LOCALE_ID,
+	useValue: 'it'
+}
+________________
+Errore "listen EACCES: permission denied 127.0.0.1:4200":
+
+CMD come amministratore e da terminale:
+-net stop winnat
+-net start winnat
+_______________
+Clonare oggetto:
+
+let clone = Object.assign({}, variabile);
+oppure
+let clone = JSON.parse(JSON.stringify(variabile));
+_______________
+Stoppare/fermare evento:
+
+$event.stopPropagation();
+_______________
+Rimuovere i parametri dall'URL:
+
+import { Location } from '@angular/common';
+
+constructor(private location: Location)
+
+this.location.replaceState("/nomeComponent");
+_______________
+Location back
+
+import { Location } from '@angular/common';
+
+constructor(private location: Location)
+
+this.location.back();
+_______________
+Json viewer:
+
+https://www.npmjs.com/package/ngx-json-viewer
+oppure
+https://www.npmjs.com/package/ng-json-view
+_______________
+Passare parametri nel canActivate:
+
+
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    // firebase token
+    if (route && route.queryParams && route.queryParams.firebaseToken) {
+      localStorage.setItem('firebaseToken', JSON.stringify(route.queryParams.firebaseToken));
+    }
+    // check production environment
+    if (this.surveyService.getProduction()) {
+      if (this.authService.isLoggedIn()) {
+        return true;
+      }
+    } else {
+      return true;
+    }
+    // redirect to authentication
+    this.authService.startAuthentication();
+    return false;
+  }
+_______________
+Clear (Destroy) setInterval:
+
+	// set interval
+	clearInterval(this.setInterval);
+	this.setInterval = setInterval(() => {
+		// get list messages
+		this.getListMessages(false, 'no-loading');
+	}, 10000, 1);
+
+	// destroy
+	ngOnDestroy() {
+		clearInterval(this.setInterval);
+	}
+_______________
+
+Codice fiscale generator:
+
+npm install codice-fiscale-js --save
+
+// cf
+import CodiceFiscale from 'codice-fiscale-js';
+
+  // set fiscal code
+  setFiscalCode() {
+    const fiscalCode = new CodiceFiscale({
+      name: this.registerModel.firstName,
+      surname: this.registerModel.lastName,
+      gender: this.registerModel.gender && this.registerModel.gender !== '' ? this.registerModel.gender[0] : this.registerModel.gender,
+      day: moment(this.registerModel.dateOfBirth).format('DD'),
+      month: moment(this.registerModel.dateOfBirth).format('MM'),
+      year: moment(this.registerModel.dateOfBirth).format('YYYY'),
+      birthplace: this.registerModel.comuneDiNascita
+    });
+    if (fiscalCode && fiscalCode.cf) {
+      this.registerModel.codiceFiscale = fiscalCode.cf;
+    }
+  }
+_______________
+
+Tabs Angular2+:
+
+ng add igniteui-angular
+
+// app.module.ts
+
+...
+import { IgxTabsModule } from 'igniteui-angular';
+
+@NgModule({
+    ...
+    imports: [..., IgxTabsModule],
+    ...
+})
+
+// html
+
+<igx-tabs>
+  <igx-tabs-group label="Tab 1">This is Tab 1 content.</igx-tabs-group>
+  <igx-tabs-group label="Tab 2">This is Tab 2 content.</igx-tabs-group>
+  <igx-tabs-group label="Tab 3">This is Tab 3 content.</igx-tabs-group>
+  <igx-tabs-group label="Tab 4">This is Tab 4 content.</igx-tabs-group>
+  <igx-tabs-group label="Tab 5">This is Tab 5 content.</igx-tabs-group>
+</igx-tabs>
+
+https://www.infragistics.com/products/ignite-ui-angular/angular/components/tabs.html
+_______________
+Loading ngx-loading:
+
+https://www.npmjs.com/package/ngx-loading
+_______________
+Notifiche angular: (toast)
+
+npm install ngx-toastr --save
+npm install @angular/animations --save
+
+import css:
+
+// regular style toast 
+@import '~ngx-toastr/toastr';
+
+in app.module:
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
+
+BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
+	
+in ts:
+
+import { ToastrService } from 'ngx-toastr';
+
+this.toastr.success('Hello world!', 'Toastr fun!');
+_______________
+Impostare focus input al click:
+
+<input  #cvSearch />
+
+  @ViewChild('cvSearch', { static: false }) cvSearch;
+
+  setFocusOnFilterInput() {
+    this.cvSearch.nativeElement.focus();
+  }
+_______________
+Form dinamico:
+
+	// create form
+	createForm() {
+		const jobGroup: FormGroup = new FormGroup({});
+		for (const field of this.form.fields) {
+			const control: FormControl = new FormControl(field);
+			jobGroup.addControl(field.name, control);
+		}
+		this.formGroup = jobGroup;
+	}
+	
+	OPPURE
+	
+  // get dinamic form group
+  getFormGroup(form: any): FormGroup {
+    const jobGroup: FormGroup = new FormGroup({});
+    for (const field of form) {
+      const control: FormControl = new FormControl(field);
+      jobGroup.addControl(field.name, control);
+    }
+    return jobGroup;
+  }
+_______________
+Editor HTML Angular:
+
+https://www.npmjs.com/package/@kolkov/angular-editor
+_______________
+Prime lettere (first letter):
+
+  // get first letter
+  getFirstLetter(value: string): string {
+    return value.split(' ').map(n => n[0]).join('');
+  }
+_______________
+Importare file:
+
+
+<button class="btn btn-primary" (click)="uploader.click()">
+	<input hidden type="file" #uploader (change)="uploadFile($event)" />
+	<i class="fa fa-upload import-export-icon"></i>
+	<span>{{ 'import' | translate}}</span>
+</button>
+
+  uploadFile(event: any) {
+    console.log(event.target.files);
+	const file: File[] = event.target.files[0];
+    event.target.value = null;
+	this.cvService.uploadCV(file).subscribe(() => {
+		//
+	}, () => {
+	});
+  }
+  
+   public uploadCV(file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('filedata', file);
+    return this.http.post<any>(Paths.base + 'api/filemanager/upload/', formData);
+  }
+_______________
+toFixed in html (decimals):
+
+<input matInput step="0.01"
+	[ngModel]="currentCredits | number:'1.2-4'" />
+	
+oppure
+
+	// to fixed header
+	toFixedHeader(fieldName: string, numberToFixed: number) {
+		this.currentSalesQuotesHeader[fieldName] = +parseFloat(this.currentSalesQuotesHeader[fieldName]).toFixed(numberToFixed);
+	}
+_______________
+File saver (export files/pdf):
+
+npm install file-saver --save
+npm install @types/file-saver --save
+
+import {saveAs} from "file-saver";
+
+const blob = new Blob([data]);
+saveAs(blob, name);
+
+CHIAMATA:
+
+  public downloadCV(name: string): Observable<Blob> {
+    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+    return this.http.get(Paths.base + 'api/filemanager/download/' + name, { headers, responseType: 'blob' });
+  }
+
+PDF
+
+const blob = new Blob([data.error.text], { type: 'application/pdf' });
+const url = window.URL.createObjectURL(blob);
+window.open(url);
+
+EXCEL
+
+  // download file
+  downloadFile(data: string, name: string) {
+    const typeFormat = name.includes('pdf') ? 'application/pdf' : name.includes('xls') ? 'application/vnd.ms-excel' : name.includes('xlsx') ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : '';
+    const base64Data = this.convertBase64ToBlobData(data, typeFormat);
+    const blob = new Blob([base64Data]);
+    saveAs(blob, name);
+  }
+
+  // convert base 64
+  convertBase64ToBlobData(base64Data: string, contentType: string): any {
+    const sliceSize = 512;
+    const byteCharacters = atob(base64Data);
+    const byteArrays = [];
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
+  
+SVG
+
+  // download image
+  downloadImage(svgData: any, name: string) {
+    const blob = new Blob([svgData], { type: 'image/svg+xml' });
+    saveAs(blob, name);
+  }
+________________
+Convertire/visualizzare base64 (contentBytes) in img src:
+
+<img src="'data:' + attachment.contentType + ';base64,' + attachment.contentBytes" />
+________________
+Export file Excel:
+
+npm install file-saver --save
+npm install @types/file-saver --save
+
+  // export excel file
+  exportAsExcelFile(json: any[], excelFileName: string): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    XLSX.writeFile(workbook, this.toExportFileName(excelFileName));
+  }
+
+  // download excel file
+  private toExportFileName(excelFileName: string): string {
+    return `${excelFileName}_export_${new Date().getTime()}.xlsx`;
+  }
+_______________
+Slice array:
+
+array.slice(0, n);
+_______________
+Iteration of Enum (ngFor of enum):
+
+export enum ChartType {
+  PIE,
+  DOUGHNUT,
+  BAR,
+  LINE,
+  CARD
+}
+
+export namespace ChartType {
+  export function values() {
+    return Object.keys(ChartType).filter(
+    (type) => isNaN(<any>type) && type !== 'values'
+    );
+  }
+}
+
+in html:
+
+<option *ngFor="let type of chartType.values()">
+_______________
+Navigation Extra (query params):
+
+
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        selectedDetail: JSON.stringify(this.selectedDetail)
+      }
+    };
+    this.router.navigate(['/tabs/details'], navigationExtras);
+
+
+    private route: ActivatedRoute
+
+    this.route.queryParams.subscribe(params => {
+      if (params) {
+        if (params.selectedDetail) {
+          this.selectedDetail = JSON.parse(params.selectedDetail);
+        }
+      }
+    });
+_______________
+Reset location url
+
+import { Location } from '@angular/common';
+
+private location: Location,
+	
+  /* RESET LOCATION URL */
+  resetLocationUrl(url: string) {
+    if (url && url.includes("?")) {
+      const urlSplit = url.split("?");
+      if (urlSplit && urlSplit.length > 0) {
+        this.location.replaceState(urlSplit[0]);
+      }
+    }
+  }
+_______________
+Ancoraggio su ID (anchor):
+
+in html:
+
+<div id="anchor">
+
+in ts:
+
+    const targetElement = document.querySelector('#anchor');
+    if (targetElement) {
+      targetElement.scrollIntoView();
+    }
+_______________
+Controllare se la variabile è un numero (is a number):
+
+isNaN(maybeNumber);
+
+Number('1234');
+_______________
+Impostare currency da typescript:
+
+	// set currency
+	setCurrency(index: number, name: string) {
+		if (this.currentCredits[index] && this.currentCredits[index][name]) {
+			this.currentCredits[index][name] = (this.currentCredits[index][name]).toLocaleString('it-IT', {
+				style: 'currency',
+				currency: 'EUR',
+			});
+		}
+	}
+______________
+Estrarre numero da string o currency:
+
+
+	// get number
+	getNumber(value: string): number {
+		if (isNaN(Number(value))) {
+			const numb = value.match(/\d/g);
+			return Number(numb.join(''));
+		}
+		return Number(value);
+	}
+_______________
+Push elemento in prima posizione dell'array:
+
+array = [newFirstElement].concat(array)
+_______________
+Distinct in array:
+                                 //campo
+this.sites = sites.filter((v, i, siteCode) => siteCode.indexOf(v) === i);
+_______________
+Loading:
+
+html: 
+  <img id="loading" src="assets/imgs/loading/loading.gif" *ngIf="loading">
+
+ts:
+public loading: boolean = false;
+
+css:
+    #loading {
+        position: fixed;
+        z-index: 999;
+        width: 6rem;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+_______________
+Event Emitter (1):
+
+
+  public handler = new EventEmitter<any>(true);
+
+nel costruttore:
+
+    this.initEventEmitters();
+
+  initEventEmitters() {
+    this.handler.subscribe((message: any) => {
+      if (message.action === 'actionEmit') {
+        // DO SOMETHING
+      }
+    });
+  }
+
+nella funzione:
+
+
+  public handler: EventEmitter<any>;
+
+    this.process(this.handler);
+
+in this.process:
+
+            handler.emit({
+              action: "actionEmit",
+              content: content
+            });
+____________________________________
+Event Emitter (2):
+
+html1:
+<app-table (select)="confirmAction($event)"></app-table>
+
+ts1:
+  confirmAction(rowSelected: SimlData) {
+    this.citelFlowService.getIntentsById(rowSelected.id).subscribe(intentBM => {
+      this.confirmEvent(intentBM);
+      this.currentModal.close();
+    });
+  }
+
+html2:
+    <ngx-datatable (activate)="onActivate($event)">
+    </ngx-datatable>
+
+ts2:
+
+    @Output() select: EventEmitter<any> = new EventEmitter<any>();
+
+    onActivate(rowEvent) {
+        if (rowEvent.type === 'click') {
+            rowEvent.cellElement.blur();
+            if (this.select) {
+                this.select.emit(rowEvent.row);
+            }
+        }
+    }
+_______________
+Verificare se è maggiorenne tramite data:
+
+  isDate18orMoreYearsOld(day, month, year) {
+    day = Number(day);
+    month = Number(month);
+    year = Number(year);
+    return new Date(year + 18, month - 1, day) <= new Date();
+  }
+_______________
+Creare pdf tramite chiamata API:
+
+npm install file-saver --save
+npm install @types/file-saver --save
+
+
+import {saveAs} from 'file-saver/FileSaver';
+
+this.http.get(url, {responseType: "blob", headers: {'Accept': 'application/pdf'}})
+  .subscribe(blob => {
+    saveAs(blob, 'download.pdf');
+  });
+_______________
+Sort by date:
+
+ASC:
+array.sort((a: any, b: any) => {
+        return new Date(a.ingresso).getTime() - new Date(b.ingresso).getTime();
+      });
+	  
+DESC:
+array.sort((a: any, b: any) => {
+        return new Date(b.ingresso).getTime() - new Date(a.ingresso).getTime();
+      });
+_______________
+Sort by column:
+
+  // sort by column asc
+  sortByColumnAsc(array: any[], column: string, property?: string) {
+    if (array && array.length > 0) {
+      array.sort((a: any, b: any) => {
+        if (property) {
+          if (a[column][property] > b[column][property]) {
+            return 1;
+          } else {
+            return -1;
+          }
+        } else {
+          if (a[column] > b[column]) {
+            return 1;
+          } else {
+            return -1;
+          }
+        }
+      });
+    }
+  }
+
+  // sort by column desc
+  sortByColumnDesc(array: any[], column: string, property?: string) {
+    if (array && array.length > 0) {
+      array.sort((a: any, b: any) => {
+        if (property) {
+          if (a[column][property] < b[column][property]) {
+            return 1;
+          } else {
+            return -1;
+          }
+        } else {
+          if (a[column] > b[column]) {
+            return 1;
+          } else {
+            return -1;
+          }
+        }
+      });
+    }
+  }
+_______________
+Convert CET date time:
+
+  // convert CET date to string
+  convertCetDateToString(date: string): string {
+    const newDate = date.split(' ');
+    if (newDate) {
+      const result = newDate[2] + '/' + newDate[1] + '/' + newDate[newDate.length - 1];
+      return moment(new Date(result)).format('DD/MM/YYYY');
+    }
+    return '-';
+  }
+
+  // convert CEST date to string
+  convertCestDateToString(date: string): string {
+    const newDate = date.split(' ');
+    if (newDate) {
+      const result = newDate[2] + '/' + newDate[1] + '/' + newDate[newDate.length - 1];
+      const hours = newDate[3].split(':');
+      const finalDate = new Date(result);
+      finalDate.setHours(+hours[0], +hours[1], +hours[2]);
+      return moment(finalDate).format('DD/MM/YYYY, HH:mm');
+    }
+    return '-';
+  }
+_______________
+Leggere file tramite http:
+
+In ".angular-cli.json"
+
+"assets": [
+  "assets",
+  "app", /* add this line to access document inside the app directory */
+  "favicon.ico"
+]
+
+nel ts:
+this.http.get('app/home/1.txt').subscribe(data => {
+    console.log('data', data.text());
+})
+_______________
+Capitalize string (upper case to first letter):
+
+displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+_______________
+Random string:
+    makeFarmId() {
+      let text = "";
+      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (let i = 0; i < 6; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+      return text;
+    }
+_______________
+Approssimare cifre decimali:
+
+Math.round(valore * Math.pow(10,nCifre);
+_______________
+Conversione byte to megabyte
+
+getSize(bytes: number): string {
+	if (bytes === 0) {
+		return '0 Bytes';
+	}
+	const k = 1024;
+	const decimals = 2;
+	const dm = decimals < 0 ? 0 : decimals;
+	const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+	const i = Math.floor(Math.log(bytes) / Math.log(k));
+	return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+_______________
+Funzione on Scroll:
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.showBanner = false;
+    localStorage.setItem("landingBanner", JSON.stringify(this.showBanner));
+    this.savelocale.setLandingBanner(this.showBanner);
+  }
+_______________
+Observable keyboard:
+
+            Observable.fromEvent(window, 'keyboardWillShow').subscribe(() => {
+                let ionFooter = this.elRef.nativeElement.querySelector('ion-footer');
+                if (ionFooter) {
+                    ionFooter.classList.add("hide-keyboard");
+                }
+            });
+            Observable.fromEvent(window, 'keyboardWillHide').subscribe(() => {
+                let ionFooter = this.elRef.nativeElement.querySelector('ion-footer');
+                if (ionFooter) {
+                    ionFooter.classList.remove("hide-keyboard");
+                }
+            });
+_______________
+Filter:
+
+this.brandFilter = this.machinesProvider.$tyres.filter(brand => {
+        return brand.Brand.includes(tireBrand);
+      });
+_______________
+Rimuovere oggetti inclusi in altro array di oggetti:
+
+myArray = myArray.filter( function( el ) {
+  return toRemove.indexOf( el ) < 0;
+} );
+_______________
+Split prendendo solo il primo elemento:
+
+"good_luck_buddy".split(/_(.+)/)[1]
+"luck_buddy"
+_______________
+Convertire stringa in data:
+
+  convertToDate(date: string): number {
+    return moment(date.replace(/\//g, '-'), "DDMMYYYY").valueOf();
+  }
+  
+  {{convertToDate(value) | date: 'dd/MM/yyyy'}}
+_______________
+Impostare lingua con moment (locale):
+
+moment.locale('it')).format('LLL');
+_______________
+Calcolare anni tramite data:
+
+  // AGE CALCULATION
+  calculateAge(birthDate: string): number {
+    const timeDiff = Math.abs(moment().valueOf() - moment(birthDate, 'DDMMYYYY').valueOf());
+    return Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
+  }
+____________________
+Restituire data col timezone corrente:
+
+  // get time zone offset
+  getTimeZoneOffset(date: string): string {
+    return date ? moment(Date.parse(date + 'Z')).format('DD/MM/YYYY') : '';
+  }
+____________________
+Aggiungere giorni/mesi/anni ad una data:
+
+const nextDate = moment(date).add(1, 'days').format('DD/MM/YYYY');
+const nextDate = moment(date).add(1, 'months').format('DD/MM/YYYY');
+const nextDate = moment(date).add(1, 'years').format('DD/MM/YYYY');
+____________________
+Togliere/sottrarre ore o minuti ad una data:
+
+          const split = slot.hour.split(":");
+          const time = moment.duration("00:30:00");
+          const date = moment().toDate();
+          date.setHours(split[0]);
+          date.setMinutes(split[1]);
+          date.setSeconds(0);
+          const dateTime = moment(date);
+          dateTime.subtract(time);
+_______________
+Confronto tra date (check date):
+
+const date1 = moment(orderDate, "DDMMYYYY").valueOf();
+const date2 = moment(moment(), "DDMMYYYY").valueOf();
+if (date1 > date2) {
+  // DO SOMETHING
+}
+		
+OPPURE
+
+var d1 = new Date();
+var d2 = new Date(d1);
+var same = d1.getTime() === d2.getTime();
+var notSame = d1.getTime() !== d2.getTime();
+_______________
+Impostare primo o ultimo giorno del mese:
+
+var firstDay = new Date(year, month, 1);
+var lastDay = new Date(year, month + 1, 0);
+_______________
+Impostare più giorni ad una data:
+
+const date = new Date();
+date.setDate(date.getDate() + 1);
+_______________
+Impostare settimana successiva:
+
+      const maxPrenotationDay = new Date(new Date(this.date).getTime() + 7 * 24 * 60 * 60 * 1000);
+	  
+	  oppure
+	  
+    const today = new Date();
+    const nextDay = new Date();
+	const value = 1 // lunedì
+    nextDay.setDate((today.getDate() + (value + 7 - today.getDay()) % 7));
+______________
+Anno corrente:
+
+$scope.anni = moment().format("YYYY");
+_______________
+Anni tramite data:
+
+this.ageTo = moment().diff(search.birthDateStart, 'years');
+_______________
+Durata del tempo live:
+
+  // get duration
+  getDuration(): string {
+    const diff = moment().diff(this.widgetService.getTask()['task-start-date']);
+    const time = moment(diff).format('H:mm:ss');
+    setTimeout(() => {
+      if (this.changeDetector && !(this.changeDetector as ViewRef).destroyed) {
+        this.changeDetector.detectChanges();
+      }
+    });
+    return time;
+  }
+_______________
+Differenza in giorni di due date (diff days):
+
+const diff = moment().diff(task['task-created-on']['java.util.Date']);
+const diff_days = Math.floor(diff / (1000 * 3600 * 24));
+_______________
+Detect change (aggiornamento valori):
+
+private changeDetector: ChangeDetectorRef
+
+    setTimeout(() => {
+      if (this.changeDetector && !(this.changeDetector as ViewRef).destroyed) {
+        this.changeDetector.detectChanges();
+      }
+    });
+_______________
+Durata (duration time) da millisecondi in input:
+
+  // get duration time
+  getDurationTime(duration: number): string {
+    const tempTime = moment.duration(duration);
+    if (tempTime.days() >= 1) {
+      return tempTime.days() + ' d : ' + tempTime.hours() + ' h : ' + tempTime.minutes() + ' m ';
+    } else if (tempTime.days() < 1 && tempTime.hours() < 1 && tempTime.minutes() < 1) {
+      return this.translationService.getTranslation('WIDGET.REMAINING_MINUTES');
+    } else if (tempTime.days() < 1 && tempTime.hours() < 1) {
+      return tempTime.minutes() + ' m';
+    } else {
+      return tempTime.hours() + ' h : ' + tempTime.minutes() + ' m ';
+    }
+  }
+_______________
+Raggruppare array in base a proprietà con stesso valore:
+
+  groupBy(list: any[], keyGetter: any): any[] {
+    const map = new Map();
+    const filteredList: any[] = [];
+    list.forEach((item) => {
+      const key = keyGetter(item);
+      const collection = map.get(key);
+      if (!collection) {
+        map.set(key, [item]);
+      } else {
+        collection.push(item);
+      }
+    });
+    map.forEach((item) => {
+      filteredList.push(item);
+    });
+    return filteredList;
+  }
+  
+  const result = this.groupBy(this.orderList, order => order.orderDate);
+_______________
+Rimuovere duplicati in array di oggetti:
+
+        if (result && result.length > 0) {
+          result = result.reduce(function (p, c) {
+            var key = [c.POrder].join('|');
+            if (p.temp.indexOf(key) === -1) {
+              p.out.push(c);
+              p.temp.push(key);
+            }
+            return p;
+          }, { temp: [], out: [] }).out;
+        }
+		
+		OPPURE
+		
+		if (result && result.length > 0) {
+          result = result.reduce((p, c) => {
+            var key = [c.POrder].join('|');
+            if (p.temp.indexOf(key) === -1) {
+              p.out.push(c);
+              p.temp.push(key);
+            }
+            return p;
+          }, { temp: [], out: [] }).out;
+        }
+_______________
+Autenticazione
+
+creare service: AuthService
+aggiungerlo nell'app.module.ts
+
+aggiungere:  export class AuthService implements CanActivate
+
+  authenticated: boolean;
+
+  canActivate(): boolean {
+    if (!this.getAuth()) {
+      this.router.navigate(['/login']);
+    }
+    return true;
+  }
+
+  setAuth(bool: boolean) {
+    this.authenticated = bool;
+  }
+
+  getAuth(): boolean {
+    return this.authenticated;
+  }
+
+in app.routing, aggiungere:
+
+{ path: 'anagrafica', component: AnagraficaComponent, canActivate: [AuthService] }
+
+dopo la chiamata del login (this.auth.login) nel subscribe:
+
+this.auth.setAuth(true);
+_______________
+ScrollTop:
+
+window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+_______________
+ScrollToBottom:
+
+html:
+<span id="conversation-{{i}}"></span>
+
+setTimeout(() => {
+	const index = this.selectedChat.conversation && this.selectedChat.conversation.length > 0 ? this.selectedChat.conversation.length - 1 : null;
+	const targetElement = document.querySelector('#conversation-' + index);
+	if (targetElement) {
+	  targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+}, 200, 1);
+_______________
+Scroll To:
+
+<div id="scrollId"></div>
+
+const element = document.querySelector("#scrollId");
+if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+_______________
+Funzione al passaggio del mouse:
+
+<div (mouseenter)="apri()" (mouseleave)="chiud()"></div>
+_______________
+Get current page (LOCATION/URL):
+
+constructor(private router: Router ) {
+
+}
+
+this.router.url
+
+oppure
+
+constructor(private location: Location ) {
+
+}
+
+location.origin
+_______________
+Scorrere proprietà Object data (reflection):
+
+    for (let key of Object.keys(data)) {
+      let prop = data[key];
+      this.bsdongle.mac = prop["id"];
+    }
+_______________
+Passare parametri in altra component:
+
+component1.ts:
+    this.flag_back = true;
+    this.router.navigate(['/servizi-configurazione'], { queryParams: { flag: this.flag_back } });
+
+in component2.ts:
+
+import { ActivatedRoute, Router } from "@angular/router";
+
+nel costruttore: 
+    private router: Router,
+    private route: ActivatedRoute,
+
+in ngOnInit:
+    this.route
+      .queryParams
+      .subscribe(params => {
+          this.flag_back = params['flag'] || false;
+      }
+    );
+_______________
+Rimuovere ultimi 3 caratteri:
+
+creationDate = creationDate.slice(0, -3);
+_______________
+
+ngStyle:
+
+[ngStyle]="{'opacity': this.enabled_luce[iMultiLuce] ? '1' : '0.5' }"
+
+ngClass:
+
+[ngClass]="{'upload-pdf-mobile': this.numPagineLuce[iMultiLuce] > 2}"
+_______________
+Cambiare style in angular 4:
+
+import { ElementRef } from '@angular/core';
+
+in constructor:  private elRef: ElementRef
+
+in ts:
+
+let show_password = this.elRef.nativeElement.querySelector('#show-password span button');
+show_password.style.display = "block";
+let otherImage = this.elRef.nativeElement.querySelector('#file-input-camerale-other-image-file');
+otherImage.src = "/assets/img/upload-picture.png";
+_______________
+Attendere il caricamento di tutti gli elementi del DOM:
+import { AfterViewInit, ChangeDetectorRef } from '@angular/core';
+
+nel costruttore: private changeDetector: ChangeDetectorRef
+
+in ts:
+  ngAfterViewChecked() {
+      setTimeout(() => {
+        if (this.changeDetector && !(this.changeDetector as ViewRef).destroyed) {
+          this.changeDetector.detectChanges();
+        }
+      });
+  }
+
+  ngAfterViewInit() {
+      setTimeout(() => {
+        if (this.changeDetector && !(this.changeDetector as ViewRef).destroyed) {
+          this.changeDetector.detectChanges();
+        }
+      });
+  }
+_______________
+Animazioni in angular 4:
+
+in app.module:
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+@NgModule({
+  imports: [
+    BrowserAnimationsModule
+  ],
+})
+
+in ts:
+import { trigger, state, style, animate, transition } from '@angular/animations';
+@Component({
+  animations: [
+      trigger('Animation', [
+          state('show', style({
+              opacity: 1
+          })),
+          state('hide', style({
+              opacity: 0
+          })),
+          transition('show => hide', animate('600ms ease-out')),
+          transition('hide => show', animate('600ms ease-in'))
+      ])
+  ]
+})
+
+nella classe:
+  show: boolean = false;
+
+  get stateName() {
+      return this.show ? 'show' : 'hide';
+  }
+
+in html:
+
+<div [@Animation]="stateName">
+_______________
+Input type number non editabile, ma selezionabile solo tramite frecce:
+
+min="1" max="9" onkeydown="return false"
+_______________
+Validità pattern:
+
+          <ion-input name="email" clearInput type="text" placeholder="Email" [(ngModel)]="email"
+            [pattern]="emailPattern" #mail="ngModel">
+          </ion-input>
+          <div *ngIf="mail.errors?.pattern">
+            User name not valid.
+          </div>
+_______________
+Pattern Numero di telefono:
+
+in html: 
+<input (keypress)="keyPressTelefono($event)" minlength=8 maxlength=16>
+
+in ts:
+    keyPressTelefono(event) {
+        const pattern = /^[0-9\+\-]+$/;
+
+        let inputChar = String.fromCharCode(event.charCode);
+        if (event.keyCode != 8 && !pattern.test(inputChar)) {
+            event.preventDefault();
+        }
+    }
+
+altri pattern:
+  telefonoPattern = "^[0-9\+\-]+$";
+  phonePattern = "^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$";
+  cfPattern = "^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z]([0-9][a-zA-Z][0-9]|[0-9]{3})[a-zA-Z]$";
+  pivaPattern = "^[0-9]{11}$";
+  emailPattern = "^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z.-]{2,20}$";
+  civicoPattern = "^[0-9]+$";
+  capPattern = "^[0-9]+$";
+  provinciaPattern = "^[a-zA-Z]{1,2}$";
+  lungPattern = "^[0-9]+\.[0-9]{2}$";
+  quantityPattern = "^[0-9]\d*(\.\d+)?$";
+  quantityPatternWithoutDecimals = "^\d+$";
+  securityCodePattern = "^[0-9]{3}$";
+  passwordPattern = "^(?=.*[A-Za-z])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"; // minimo 8 caratteri + carattere speciale
+  decimalPattern = "^(\d+(\,\d{0,2}|(\.\d{0,2})?|\.?\d{0,2}))$"
+
+IBAN (minlength=15, maxlength=31)
+_______________
+Keypress for number with fix two decimal:
+
+const value = array[fieldName].toString();
+const test = value.replace('.', ',');
+const pattern = /^(\d*\.?\d+|\d(,\d{1})*(\.\d+)?)$/;
+if (event.keyCode !== 8 && !pattern.test(test)) {
+	event.preventDefault();
+}
+
+// key press
+keyPress(array: any, fieldName: string, event: any) {
+	if (!fieldName.toLowerCase().includes('quantity') && !fieldName.toLowerCase().includes('qty') && !fieldName.toLowerCase().includes('type')) {
+		if (array[fieldName] !== undefined) {
+			if (event.target.value.indexOf('.') === -1) { return; }
+			if ((event.target.value.length - event.target.value.indexOf('.')) > 2) {
+				event.target.value = parseFloat(event.target.value).toFixed(2);
+			}
+		}
+	} else {
+		const pattern = /^[0-9]\d*(\.\d+)?$/;
+		const inputChar = String.fromCharCode(event.charCode);
+		if (event.keyCode !== 8 && !pattern.test(inputChar)) {
+			event.preventDefault();
+		}
+	}
+}
+
+______________
+Espressione regolare per verificare se decimale (.5)
+
+const pattern = /^(?=.*[1-9])\d+(?:\.[05]0?)?$/;
+const input = <valore>;
+if (!pattern.test(input)) {
+	<errore>
+}
+_______________
+Verificare informazioni device:
+
+in constructor:
+        let userAgent = window.navigator.userAgent;
+        let browsers = { chrome: /chrome/i, safari: /safari/i, firefox: /firefox/i, ie: /internet explorer/i };
+
+        for (let key in browsers) {
+            if (browsers[key].test(userAgent)) {
+                console.log(key);
+                break;
+            }
+        };
+_______________
+Timeout asincrono:
+
+import { Observable } from 'rxjs/Rx';
+
+in constructor:
+Observable.interval(5000)
+            .subscribe((data) => {
+                this.flag = !this.flag;
+            });
+_______________
+Verificare se desktop o mobile:
+
+import { HostListener } from '@angular/core';
+
+nella classe:
+    public innerWidth: number;
+    public innerHeight: number;
+
+in ngOnInit: 
+	this.innerWidth = window.innerWidth;
+        this.innerHeight = window.innerHeight;
+
+sopra la funzione ngOnInit:
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.innerWidth = window.innerWidth;
+        this.innerHeight = window.innerHeight;
+        if (this.innerWidth <= 800 && this.innerHeight <= 600) {
+          //mobile
+        }
+        else {
+          //desktop
+        }
+    }
+_______________
+Bottom-sheet (ng2-sidebar)
+
+npm install ng2-sidebar --save
+
+in module.ts:
+
+import { SidebarModule } from 'ng2-sidebar';
+in imports: SidebarModule
+
+in html:
+
+<ng2-sidebar id="bottom-sheet" [(open)]="openSidebar" [showOverlay]="true" [defaultStyles]="true" [position]="POSITIONS[3]" [closeOnClickOutside]="true">
+  <div>
+    <p>Ciao</p>
+  </div>
+</ng2-sidebar>
+
+nel file ts:
+
+import { SIDEBAR_POSITION } from 'ng2-sidebar';
+
+nella classe:
+  openSidebar: boolean = false;
+  POSITIONS = [SIDEBAR_POSITION.Left, SIDEBAR_POSITION.Right, SIDEBAR_POSITION.Top, SIDEBAR_POSITION.Bottom];
+
+  toggleSidebar() {
+    this.openSidebar = !this.openSidebar;
+    if (this.openSidebar) {
+    }
+  }
+  
+Bottom sheet di material:
+
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+private bottomSheet: MatBottomSheet,
+
+const bottomSheetRef = this.bottomSheet.open(WidgetModalBottomSheetComponent, {
+      data: {
+        name: process['process-name'],
+        content: process.instances
+      }
+    });
+    bottomSheetRef.afterDismissed().subscribe(() => { });
+	
+nel component:
+
+
+import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+
+
+costruttore:		@Inject(MAT_DIALOG_DATA) public data: any
+
+per chiudere: this.bottomsheet.dismiss();
+____________________
+Extension MIME Type:
+
+.doc      application/msword
+.dot      application/msword
+
+.docx     application/vnd.openxmlformats-officedocument.wordprocessingml.document
+.dotx     application/vnd.openxmlformats-officedocument.wordprocessingml.template
+.docm     application/vnd.ms-word.document.macroEnabled.12
+.dotm     application/vnd.ms-word.template.macroEnabled.12
+
+.xls      application/vnd.ms-excel
+.xlt      application/vnd.ms-excel
+.xla      application/vnd.ms-excel
+
+.xlsx     application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+.xltx     application/vnd.openxmlformats-officedocument.spreadsheetml.template
+.xlsm     application/vnd.ms-excel.sheet.macroEnabled.12
+.xltm     application/vnd.ms-excel.template.macroEnabled.12
+.xlam     application/vnd.ms-excel.addin.macroEnabled.12
+.xlsb     application/vnd.ms-excel.sheet.binary.macroEnabled.12
+
+.ppt      application/vnd.ms-powerpoint
+.pot      application/vnd.ms-powerpoint
+.pps      application/vnd.ms-powerpoint
+.ppa      application/vnd.ms-powerpoint
+
+.pptx     application/vnd.openxmlformats-officedocument.presentationml.presentation
+.potx     application/vnd.openxmlformats-officedocument.presentationml.template
+.ppsx     application/vnd.openxmlformats-officedocument.presentationml.slideshow
+.ppam     application/vnd.ms-powerpoint.addin.macroEnabled.12
+.pptm     application/vnd.ms-powerpoint.presentation.macroEnabled.12
+.potm     application/vnd.ms-powerpoint.template.macroEnabled.12
+.ppsm     application/vnd.ms-powerpoint.slideshow.macroEnabled.12
+
+.mdb      application/vnd.ms-access
+____________________
+
+TOAST:
+
+npm i ng2-toastr
+
+creare file customoption.ts:
+
+import { ToastOptions } from 'ng2-toastr';
+
+export class CustomOption extends ToastOptions {
+    animate = 'fade'; // you can override any options available
+    newestOnTop = false;
+    showCloseButton = false;
+    toastLife = 3500;
+    dismiss = 'auto';
+    maxShown = 1;
+    positionClass = 'toast-bottom-center';
+  }
+
+in app.module:
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastOptions } from 'ng2-toastr/src/toast-options';
+import { CustomOption } from './directives/customoption';
+
+in imports: ToastModule.forRoot()
+in providers: { provide: ToastOptions, useClass: CustomOption }
+
+nel file ts:
+
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
+nella firma del costruttore: public toastr: ToastsManager,
+        vcr: ViewContainerRef
+
+nel costruttore: this.toastr.setRootViewContainerRef(vcr)
+
+per visualizzarlo:
+
+showToastCustom(servizio) {
+        let message = 'Servizio ' + servizio + ' configurato correttamente!';
+        this.toastr.custom(message, null, { enableHTML: true });
+    }
+_____________________________________
+
+FORK JOIN IN PARALLELO:
+
+// FORK JOIN
+const calls = [];
+calls.push(this.httpProvider.get1(access_token, filter1));
+calls.push(this.httpProvider.get2(access_token, filter2));
+forkJoin(calls).subscribe(result => {
+  this.servicesProvider.hideLoader();
+  if (result) {
+  }
+}, (err) => {
+  this.servicesProvider.hideLoader();
+  this.showToast(this.servicesProvider.getErrorMessage(err));
+});
+_______________________________________________________
+ANGULAR JS
+_______________________________________________________
+_______________________________________________________
+Svuotare localStorage:
+localStorage.clear();
+_______________
+Inserire messaggio di errore:
+
+html:
+                        <md-input-container class="md-block label-top" flex-gt-sm="33">
+                            <label>Canale</label>
+                            <md-select ng-disabled="disableFilters" ng-model="filtri.canale" required>
+                                <md-option ng-repeat="canale in canaliMok" value="{{canale.cv_desc}}">{{canale.cv_desc}}</md-option>
+                            </md-select>
+                            <div ng-messages="{'required': !filtri.canale}">
+                                <div ng-message="required">{{erroreRequired}}</div>
+                            </div>
+                        </md-input-container>
+
+js:
+                    //messaggi di errore
+                    $scope.erroreRequired = 'Campo obbligatorio';
+_______________
+Eseguire funzioni al caricamento della pagina:
+
+        this.$onInit = function () {
+		//codice
+        }
+_______________
+Evento al clic su tasto Esc:
+
+html:
+ng-keydown="checkEsc($event)"
+
+controller:
+    $scope.checkEsc = function (e) {
+        if (e.keyCode == 27) {
+            $scope.show_switchButton = !$scope.show_switchButton;
+        }
+        else {
+            $scope.show_switchButton = false;
+        }
+    }
+_______________
+Impostare ultimo giorno del mese corrente:
+
+    const date = new Date(lotDate);
+    const newLotDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+_______________
+Controllare giorno numerico della settimana (week) da una data:
+
+0 = dom, 1 = lun ... 6 = sab
+
+  // check date
+  checkDate() {
+    if (this.date) {
+      console.log("this.date: ", this.date);
+      const date = moment(this.date);
+      const day = date.day();
+      console.log("day: ", day);
+    }
+  }
+_______________
+Date to Timestamp:
+
+const date = new Date(this.getRow(id).date).getTime().toString();
+_______________
+Resize Screen:
+
+    $scope.width = $window.innerWidth;
+
+    /* onResize Screen */
+    angular.element($window).bind('resize', function () {
+
+        $scope.width = $window.innerWidth;
+
+        // manuall $digest required as resize event
+        // is outside of angular
+        $scope.$digest();
+    });
+_______________
+Rimuovere tutti i caratteri dopo il '?':
+
+this.route.substring(0, this.route.indexOf('?'));
+
+oppure
+
+const res = str.substring(1, 4);
+_______________
+Chiamata php:
+
+mainService.getMethod().namePhpFunction({ 'table': 'client' }, function (response) {
+        $scope.response = response;
+    });
+_______________
+Espressione regolare:
+
+var without_space = linguaggi.replace(/ /g, '');	//Rimuove spazi
+var array_splitted = without_space.split(",");		//Aggiunge elementi dove trova la virgola
+_______________
+Aggiungere elemento in un indice specifico dell'array:
+
+arr.splice(index, 0, elem);
+_______________
+Trovare indice in un array di oggetti:
+
+var index = $scope.operatori.findIndex(function (element) {
+	return element.sigla == operator;
+});
+_______________
+Timeout/Interval:
+
+setTimeout(function () { doSomething(); }, 500, 1);
+
+$interval(function () { doSomething(); }, 4000, 1);
+_______________
+Rimuovere elementi nell'array in angular:
+
+for (let i = this.array.length - 1; i >= 0; i--) {
+    if (this.array[i] == "")
+        this.array.splice(i, 1);
+}
+_______________
+Rimuovere duplicati:
+
+var res = [];
+res = $rootScope.removeDuplicates(array);
+
+$rootScope.removeDuplicates = function (arr) {
+        return arr.reduce(function (p, c) {
+            var key = [c.nome, c.id].join('|');
+            if (p.temp.indexOf(key) === -1) {
+                p.out.push(c);
+                p.temp.push(key);
+            }
+            return p;
+        }, { temp: [], out: [] }).out;
+    }
+	
+  // remove task duplicates
+  removeTaskDuplicates(array: any[]) {
+    return array.reduce((p, c) => {
+      const key = [c['task-id']].join('|');
+      if (p.temp.indexOf(key) === -1) {
+        p.out.push(c);
+        p.temp.push(key);
+      }
+      return p;
+    }, { temp: [], out: [] }).out;
+  }
+______________
+Ordinare array di Object:
+
+$rootScope.sort_by = function (field, reverse, primer) {
+        var key = primer ?
+            function (x) { return primer(x[field]) } :
+            function (x) { return x[field] };
+        reverse = !reverse ? 1 : -1;
+        return function (a, b) {
+            return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+        }
+    }
+
+$rootScope.array_da_ordinare.sort($rootScope.sort_by('campo', false, function (a) { return a }));
+
+Ordinare array:
+
+array.sort();
+______________
+Filter:
+$scope.ListOfWomen = $scope.ListOfPeople.filter(function (person) {
+    return (person.Sex == "Female");
+});
+______________
+Esegue funzione dopo tot di ms:
+
+if (angular.isDefined($scope.filterTimeout)) {
+	$timeout.cancel($scope.filterTimeout);
+}
+$scope.filterTimeout = $timeout(function () { doSomething(); }, 1000, 1);
+______________
+ScrollTop:
+
+window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+______________
+Scroll to:
+
+var offset = document.getElementById(resolution).offsetLeft;
+$(".area-container").scrollLeft(offset);
+______________
+Promise: (Esegue una funzione al completamento di un'altra)
+
+	var promise = $q.when();
+	promise = promise.then(function () {
+	return mainService.getMethod().getWorkingHours({ 'id': item.id }).$promise.then(function (response) {
+                        var resp = response;
+			doSomething();
+                    }, function () {
+                        console.log('SINGLE PROMISE ERROR');
+                        throw ({ isError: true });
+                    });
+        });
+
+        promise.then(function (response) {
+            doSomething();
+        }, function (response) {
+            if (response.isError === false) {
+                console.log('Error!');
+            }
+        });
+_______________
+Multi promise in for:
+
+$rootScope.promises = [];
+for (var i = 0; i < $rootScope.elencopazienti.length; i++) {
+	mainService.getMethod().get_diarioclinico({ 'id': $rootScope.elencopazienti[i].id }, function (response) {
+		$rootScope.promises.push($scope.diarioclinico.push(response));
+	});
+}
+$q.all($rootScope.promises1, $rootScope.promises2, $rootScope.promises3).then(function () {
+	doSomething();
+});
+_______________
+Modal box:
+
+$scope.data = {
+        boldTextTitle: "WARNING",
+        
+	textAlert: "Non sono disponibili progetti per questa risorsa!",
+        
+	mode: 'danger'
+    }
+
+
+
+$rootScope.open = function (mode) {
+
+        if (mode == 'danger') {
+            $rootScope.data = $scope.data;
+            $rootScope.data.mode = mode;
+	    $scope.template_url = "view/myModalContent.html";
+        }
+
+var modalInstance = $modal.open({
+	templateUrl: $scope.template_url,
+                
+	controller: modalInstanceCtrl,
+                
+	backdrop: true,
+                
+	keyboard: true,
+                
+	backdropClick: true,
+                
+	size: 'lg',
+                
+	resolve: {
+		data: function () {
+                        return $rootScope.data;
+		}
+	}
+});
+
+            
+
+	modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                //$log.info('Modal dismissed at: ' + new Date());
+            });
+        }
+
+    /* Controller modal box */
+    var modalInstanceCtrl = function ($scope, $rootScope, $modalInstance, data) {
+        $rootScope.data = data;
+ 
+       
+	$scope.close = function () {
+            $modalInstance.close($rootScope.data);
+        };
+    };
+______________
+Ore lavorative tra due date tranne festivi:
+
+$scope.diff_days = function (startDate, endDate) {
+        var count = 0, curDate = startDate, month = 0, dayOfWeek, day;
+        //"*-01-01"=>"Capodanno",
+        //"*-01-06"=>"Epifania",
+        //"*-04-25"=>"Liberazione",
+        //"*-05-01"=>"Festa Lavoratori",
+        //"*-06-02"=>"Festa della Repubblica",
+        //"*-08-15"=>"Ferragosto",
+        //"*-11-01"=>"Tutti Santi",
+        //"*-12-08"=>"Immacolata",
+        //"*-12-25"=>"Natale",
+        //"*-12-26"=>"Santo Stefano",
+        //"*-08-16"=>"Patrono" 
+        while (curDate <= endDate) {
+            dayOfWeek = curDate.getDay();
+            day = curDate.getDate() + "-" + curDate.getMonth();
+            if (!((dayOfWeek == 6) || (dayOfWeek == 0) || (day == "1-0") || (day == "6-0") || (day == "25-3") || (day == "1-4") || (day == "2-5") || (day == "15-7") || (day == "1-10") || (day == "8-11") || (day == "25-11") || (day == "26-11") || (day == "16-7")))
+                count++;
+            curDate.setDate(curDate.getDate() + 1);
+        }
+        $rootScope.business_days.push(count*8);
+    }
