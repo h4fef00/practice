@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function NavbarIcons() {
   return (
     <>
@@ -47,40 +48,36 @@ function NavbarIcons() {
               </div>
               <ul className="py-1" role="none">
                 <li>
-                  <a
-                    href="#"
+                  <Link
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                   >
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                     role="menuitem"
                   >
                     Settings
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                     role="menuitem"
                   >
                     Earnings
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                     role="menuitem"
                   >
                     Sign out
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
