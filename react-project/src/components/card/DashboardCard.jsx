@@ -3,16 +3,16 @@ import { FaBriefcase } from "react-icons/fa6";
 export default function DashboardCard() {
   return (
     <>
-      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <div className="flex">
-          <div>
+      <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-lg">
+        <div className="flex justify-between items-center mb-2">
+          <div className="mb-2">
             <Link>
-              <h5 className="mb-2 text-2xl font-normal tracking-tight text-gray-900">
+              <h5 className=" text-2xl font-normal tracking-tight text-gray-900">
                 Prodotti
               </h5>
             </Link>
           </div>
-          <div>
+          <div className="bg-[#b1a5ff] rounded-[0.5rem] p-[0.9rem]">
             <FaBriefcase />
           </div>
         </div>
