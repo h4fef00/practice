@@ -1,0 +1,12 @@
+.bg-cover-profile {
+  background: url("../../assets/background-profile.jpg") 0% 0% / cover no-repeat;
+}
+
+.list-margin {
+  margin: -0.0625rem 1rem 0;
+}
+
+ul,
+li {
+  margin-top: 0;
+}

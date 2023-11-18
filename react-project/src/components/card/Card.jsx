@@ -11,11 +11,17 @@ export default function Card(props) {
       </Link>
       <div>
         <Link>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+          <h5
+            className="mb-2 text-2xl font-bold tracking-tight text-gray-900 mt-2 truncate"
+            title={props.title}
+          >
             {props.title}
           </h5>
         </Link>
-        <p className="truncate mb-3 font-normal text-gray-700">
+        <p
+          className="truncate mb-3 font-normal text-gray-700 mt-2"
+          title={props.title}
+        >
           {props.description}
         </p>
         <Link className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white hover:bg-[#4e3ccc] bg-[#624bff] rounded-lg">

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 export default function Login() {
+  const navigate = useNavigate();
   return (
     <div className="container flex flex-col items-center justify-center py-8 mx-auto">
       <div className="w-[40%] p-4 bg-white border border-gray-300 rounded-lg shadow-2xl">
@@ -60,8 +62,9 @@ export default function Login() {
           <button
             type="submit"
             className="w-full text-white hover:bg-[#4e3ccc] bg-[#624bff] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            onClick={() => navigate("/home")}
           >
-            <Link to="/home">Login</Link>
+            Login
           </button>
           <div className="text-sm font-medium text-[#4e3ccc] flex">
             <Link className="hover:text-[#624bff]">Crea account</Link>
