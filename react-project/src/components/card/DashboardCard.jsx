@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function DashboardCard(props) {
+export default function DashboardCard({ title, icon, available }) {
   return (
     <>
       <div className="mt-[11rem] mx-7">
@@ -9,16 +9,16 @@ export default function DashboardCard(props) {
             <div className="cursor-pointer">
               <Link>
                 <h5 className="font-normal tracking-wide text-gray-900 text-lg hover:underline hover:text-[#b1a5ff]">
-                  {props.title}
+                  {title}
                 </h5>
               </Link>
             </div>
             <div className="bg-[#b1a5ff] rounded-[0.5rem] p-[0.7rem] justify-center">
-              {props.icon}
+              {icon}
             </div>
           </div>
           <div>
-            <h1 className="text-3xl font-bold">{props.available}</h1>
+            <h1 className="text-3xl font-bold">{available}</h1>
             {/* numero prodotti finiti (finto) */}
           </div>
         </div>

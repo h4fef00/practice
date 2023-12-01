@@ -76,18 +76,79 @@ export default function Profile() {
         <div className="py-[2rem]">
           <div className="flex flex-row">
             <div className="flex flex-col mb-8">
-              <div className="rounded-[0.5rem] border-0">
+              <div className="rounded-md border-0">
                 <div className="flex-auto p-[1.25rem] bg-[#fff]">
-                  <h4 className="mb-[1rem] text-">About me</h4>
-                  <span className="uppercase font-medium text-black text-xs">
+                  <h4 className="font-bold">About me</h4>
+                  <hr />
+                  <span className="uppercase font-bold text-black text-xs">
                     bio
                   </span>
-                  <p className="mt-[0.5rem] mb-[2rem]">
+                  <p className="mt-[0.5rem]">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Dolorum nemo, beatae sint culpa officia sunt. Quidem natus,
                     quia quod magnam eligendi molestias ducimus tempora ex
                     mollitia praesentium nisi dicta. Recusandae.
                   </p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    position
+                  </span>
+                  <p className="mt-[0.5rem]">Theme designer at Gumroad.</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    phone
+                  </span>
+                  <p className="mt-[0.5rem]">+32112345689</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    date of birth
+                  </span>
+                  <p className="mt-[0.5rem]">01.10.1997</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    email
+                  </span>
+                  <p className="mt-[0.5rem]">Dashui@gmail.com</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    location
+                  </span>
+                  <p className="mt-[0.5rem]">India</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col mb-8"></div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-col mb-8">
+              <div className="rounded-md border-0">
+                <div className="flex-auto p-[1.25rem] bg-[#fff]">
+                  <h4 className="font-bold">Project Contributions</h4>
+                  <hr />
+                  <span className="uppercase font-bold text-black text-xs">
+                    bio
+                  </span>
+                  <p className="mt-[0.5rem]">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Dolorum nemo, beatae sint culpa officia sunt. Quidem natus,
+                    quia quod magnam eligendi molestias ducimus tempora ex
+                    mollitia praesentium nisi dicta. Recusandae.
+                  </p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    position
+                  </span>
+                  <p className="mt-[0.5rem]">Theme designer at Gumroad.</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    phone
+                  </span>
+                  <p className="mt-[0.5rem]">+32112345689</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    date of birth
+                  </span>
+                  <p className="mt-[0.5rem]">01.10.1997</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    email
+                  </span>
+                  <p className="mt-[0.5rem]">Dashui@gmail.com</p>
+                  <span className="uppercase font-bold text-black text-xs">
+                    location
+                  </span>
+                  <p className="mt-[0.5rem]">India</p>
                 </div>
               </div>
             </div>
