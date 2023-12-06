@@ -1,0 +1,8 @@
+@import "../../App.css";
+p {
+  color: var(--main-dark-gray);
+}
+
+::placeholder {
+  padding: 10px;
+}

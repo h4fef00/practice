@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+:root {
+  --main-dark-gray: rgb(71, 85, 105);
+  --main-purple: rgb(82, 63, 214);
+  --main-black: rgb(51, 65, 85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
