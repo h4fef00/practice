@@ -4,7 +4,6 @@
 };*/
 
 import { type PropsWithChildren } from "react";
-
 /*}interface CourseGoalType {
   title: string;
   children: ReactNode;
