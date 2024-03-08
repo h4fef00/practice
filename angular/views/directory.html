@@ -1,0 +1,23 @@
+<div class="content">
+  <button ng-click="order = 'name'">Order by name</button>
+  <button ng-click="order = '-price'">Order by price</button>
+  <input type="text" ng-model="search" />
+  <ul>
+    <li ng-repeat="app in apps | orderBy: order | filter: search ">
+      <img
+        ng-src="{{app.image}}"
+        style="margin: -12px 10px 0 0; float: left; width: 50px"
+        ng-show="app.image"
+      />
+      <h3>{{app.name}} - {{app.price | currency: "€"}}</h3>
+      <div ng-click="removeApp(app)" class="remove">x</div>
+      <span style="background: {{app.color}}" class="belt">{{app.boss}}</span>
+    </li>
+  </ul>
+  <form ng-submit="addApp()">
+    <input type="text" placeholder="name" ng-model="newApp.name" />
+    <input type="text" placeholder="year" ng-model="newApp.year" />
+    <input type="text" placeholder="boss" ng-model="newApp.boss" />
+    <input type="submit" value="Add new ninja" />
+  </form>
+</div>
