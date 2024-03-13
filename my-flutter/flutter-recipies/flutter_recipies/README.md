@@ -1,16 +1,10 @@
 # flutter_recipies
 
-A new Flutter project.
+Il progetto si baserà su una home che mostrerà una lista di ricette, prese ancora da non so dove.
+L'utente potrà aggiungerle ai preferiti, rimuoverle o commentarle, quindi ci sarà una pagina per visualizzare l'intera ricetta, vedere la data di inserimento/modifca e possibilità di commentare.
+L'utente potrà anche aggiungere una sua ricetta, quindi ci sarà un form con input immagine, titolo, descrizione, abilitazione commenti.
 
-## Getting Started
+# funzionalità di login
+model con nome, cognome, data di nascita, username, password, città.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+registrazione e login (?)
