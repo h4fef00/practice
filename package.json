@@ -2,6 +2,8 @@
   "dependencies": {
     "@angular/cli": "^17.0.3",
     "angular": "^1.8.2",
+    "angular-material": "^1.2.5",
+    "grunt-angular-builder": "^2.0.0",
     "react-icons": "^4.11.0"
   }
 }

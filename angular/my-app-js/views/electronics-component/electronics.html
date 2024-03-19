@@ -1,0 +1,182 @@
+<div class="row">
+  <div class="col-4">
+    <!-- <div>
+            <a
+              data-bs-toggle="collapse"
+              class="text-black text-decoration-none fw-bold"
+              href="#collapseExample"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Categorie
+            </a>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                
+              </div>
+            </div>
+          </div> -->
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            Filtra
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Default checkbox
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+                checked
+              />
+              <label class="form-check-label" for="flexCheckChecked">
+                Checked checkbox
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 card border-top-0">
+    <div class="row mt-3">
+      <div class="col-3">
+        <div class="dropdown">
+          <button
+            class="btn btn-white border border-black dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="dropdown">
+          <button
+            class="btn btn-white border border-black dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="dropdown">
+          <button
+            class="btn btn-white border border-black dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-4">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary">Left</button>
+          <button type="button" class="btn btn-primary">Middle</button>
+          <button type="button" class="btn btn-primary">Right</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-6 mb-3" ng-repeat="product in products">
+        <div class="card" style="width: 18rem">
+          <a href="#!/{{product.id}}">
+            <img
+              src="{{product.image}}"
+              class="card-img-top"
+              style="height: 200px; object-fit: contain"
+            />
+          </a>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title text-truncate fw-bold">
+                {{product.title}}
+              </h5>
+              <h5 class="fw-bold text-danger">
+                {{product.price | currency: "€"}}
+              </h5>
+            </div>
+
+            <p
+              class="card-text text-body text-truncate"
+              style="font-size: 12px"
+            >
+              {{product.description}}
+            </p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <div class="row">
+              <!-- <div class="col-6">
+                <img src="assets/img/star_icon.png" alt="" />
+              </div> -->
+              <div class="col-12">
+                <a href="#" class="btn btn-sm btn-outline-primary w-100"
+                  >Carrello</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

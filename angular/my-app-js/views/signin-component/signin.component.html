@@ -1,0 +1,136 @@
+<div class="card p-3">
+  <form ng-submit="signin()" name="signinForm">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="nameUser" class="form-label">Name</label>
+          <input
+            ng-model="user.name"
+            type="text"
+            class="form-control"
+            id="nameUser"
+            minlength="3"
+            name="name"
+            required
+          />
+          <span
+            class="text-danger"
+            ng-show="signinForm.name.$pristine || signinForm.name.length <= 3"
+          >
+            Required field
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="surnameUser" class="form-label">Surname</label>
+          <input
+            ng-model="user.surname"
+            type="text"
+            class="form-control"
+            id="surnameUser"
+            name="surname"
+            minlength="3"
+            required
+          />
+          <span
+            class="text-danger"
+            ng-show="
+              signinForm.surname.$pristine || signinForm.surname.length <= 3
+            "
+          >
+            Required field
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            ng-model="user.email"
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+            required
+          />
+          <span
+            class="text-danger"
+            ng-show="
+              signinForm.email.$pristine ||
+              signinForm.email.length === 0 ||
+              signinForm.email.$invalid
+            "
+          >
+            Required field
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            ng-model="user.password"
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            minlength="6"
+            name="password"
+            required
+          />
+          <span
+            class="text-danger"
+            ng-show="
+              signinForm.email.$pristine ||
+              signinForm.email.length === 0 ||
+              signinForm.email.$invalid
+            "
+          >
+            Required field
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="mb-3 form-check">
+          <input
+            ng-model="user.isAdmin"
+            type="checkbox"
+            class="form-check-input"
+            id="exampleCheck1"
+          />
+          <label class="form-check-label" for="exampleCheck1">Admin</label>
+          <div ng-show="error" class="text-danger fw-bold">{{ error }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <input
+          type="submit"
+          class="btn btn-primary w-100"
+          value="Signin"
+          ng-disabled="signinForm.$invalid"
+        />
+        <div>
+          <p>
+            <a href="#!/login" class="text-decoration-none fw-bold"
+              >Hai già un account?</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
