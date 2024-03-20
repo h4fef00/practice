@@ -24,29 +24,32 @@ myAppModule.config([
         templateUrl: "views/signin-component/signin.component.html",
         controller: "userController",
       })
-
+      .when("/profile", {
+        templateUrl: "views/profile-component/profile.component.html",
+        controller: "userController",
+      })
       .when("/cart", {
         templateUrl: "views/cart-component/cart.component.html",
         controller: "cartController",
-        resolve: {
-          auth: [
-            "$location",
-            "authService",
-            function ($location, authService) {
-              return authService.isAuthenticated().then(
-                function (success) {
-                  console.log(success);
-                  $location.path("/home");
-                },
-                function (error) {
-                  $location.path("/login");
-                  console.log(error);
-                  $location.replace();
-                }
-              );
-            },
-          ],
-        },
+        // resolve: {
+        //   auth: [
+        //     "$location",
+        //     "authService",
+        //     function ($location, authService) {
+        //       return authService.isAuthenticated().then(
+        //         function (success) {
+        //           console.log(success);
+        //           $location.path("/cart");
+        //         },
+        //         function (error) {
+        //           $location.path("/login");
+        //           console.log(error);
+        //           $location.replace();
+        //         }
+        //       );
+        //     },
+        //   ],
+        // },
       })
       .when("/:idProd", {
         templateUrl: "views/product-component/product.html",
@@ -137,8 +140,9 @@ myAppModule.controller("homeController", [
   "$scope",
   "productService",
   "$window",
+  "authService",
 
-  function ($scope, productService, $window) {
+  function ($scope, productService, $window, authService) {
     try {
       $scope.getProducts = () => {
         productService.getProducts().then(function (response) {
@@ -146,6 +150,7 @@ myAppModule.controller("homeController", [
         });
       };
       $scope.getProducts();
+      console.log(authService.isAuthenticated());
     } catch (err) {
       console.log(err);
     }
@@ -259,10 +264,13 @@ myAppModule.controller("userController", [
       );
       if (emailExists) {
         authService.setAuth(true);
+        $scope.isLogged = true;
         sessionStorageService.setSession("user", $scope.user);
         if ($scope.isLogged) {
           // $location.path("/home");
           console.log("ok");
+          $location.path("/home");
+          console.log($scope.isLogged);
         }
       } else {
         $scope.error = `Nessun utente esistente con email ${$scope.user.email}. Registrati.`;
@@ -270,3 +278,5 @@ myAppModule.controller("userController", [
     };
   },
 ]);
+
+myAppModule.controller("cartController", [function () {}]);
